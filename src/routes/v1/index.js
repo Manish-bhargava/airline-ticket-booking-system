@@ -1,9 +1,20 @@
-const express=require("express");
-const router=express.Router();
+const express = require('express');
+
+// const { InfoController } = require('../../controllers');
+
+const airplaneRoutes = require('./airplane-routes');
 const cityRoutes = require('./city-routes');
-// const {InfoControllers}=require("../../controllers/index.js");
-const airplaneRoutes=require("./airplane-routes");
-router.use('/airplane',airplaneRoutes);
+const airportRoutes = require('./airport-routes');
+const flightRoutes = require('./flight-routes');
+
+const router = express.Router();
+
+router.use('/airplanes', airplaneRoutes);
 router.use('/cities', cityRoutes);
-// router.get('/info',InfoControllers);
-module.exports=router;
+router.use('/airports', airportRoutes);
+router.use('/flights', flightRoutes);
+
+// router.get('/info', InfoController.info);
+
+
+module.exports = router;
